@@ -1,3 +1,4 @@
+<?php require_once('includes/db.php') ?>
 <?php require_once('includes/header.php') ?>
     <!-- Navigation -->
     <?php require_once "includes/navigation.php" ?>
