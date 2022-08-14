@@ -1,11 +1,11 @@
-<?php require_once("includes/header.php") ?>
+<?php require_once("includes/admin_header.php") ?>
 
     <div id="wrapper">
 
     <?php if ($connection) echo "conn"; ?>
 
         <!-- Navigation -->
-        <?php require_once("includes/navigation.php") ?>
+        <?php require_once("includes/admin_navigation.php") ?>
  
         <div id="page-wrapper">
 
@@ -28,4 +28,4 @@
 
         </div>
         <!-- /#page-wrapper -->
-<?php require_once("includes/footer.php") ?>
+<?php require_once("includes/admin_footer.php") ?>
