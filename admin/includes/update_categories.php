@@ -1,8 +1,7 @@
-
-
 <form action="" method="post">
     <div class="form-group">
         <label for="cat-title">Edit Category</label>
+        
         <?php
 
             if (isset($_GET['edit'])) {
@@ -22,6 +21,7 @@
             <input value="<?= "$cat_title" ? "$cat_title" : ""?>" type="text" class="form-control" name="cat_title" >
             <?php } ?>
         <?php } ?>
+ 
         <?php
             // UDPATE QUERY
             if(isset($_POST['update_category'])) {
