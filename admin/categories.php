@@ -19,30 +19,30 @@
 
                         <div class="col-xs-6">
 
-                        <?php
+                            <?php
 
-                            if (isset($_POST['submit'])) {
-                                
-                                $cat_title = $_POST['cat_title'];
-
-                                if ($cat_title == "" || empty($cat_title)) {
+                                if (isset($_POST['submit'])) {
                                     
-                                    echo "This field should not be empty";
+                                    $cat_title = $_POST['cat_title'];
 
-                                } else {
+                                    if ($cat_title == "" || empty($cat_title)) {
+                                        
+                                        echo "This field should not be empty";
 
-                                    $query = "INSERT INTO categories(cat_title) ";
-                                    $query .= "VALUE('{$cat_title}') ";
+                                    } else {
 
-                                    $create_category_query = mysqli_query($connection, $query);
-                                    if (!$create_category_query) {
-                                        die('QUERY FAILED' . mysqli_error($connection));
+                                        $query = "INSERT INTO categories(cat_title) ";
+                                        $query .= "VALUE('{$cat_title}') ";
+
+                                        $create_category_query = mysqli_query($connection, $query);
+                                        if (!$create_category_query) {
+                                            die('QUERY FAILED' . mysqli_error($connection));
+                                        }
+
                                     }
-
                                 }
-                            }
 
-                        ?>
+                            ?>
 
                             <form action="" method="post">
                                 <div class="form-group">
@@ -54,34 +54,17 @@
                                 </div>
                             </form>
 
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label for="cat-title">Edit Category</label>
-                                    <?php
+                            <?php
+                            
+                            if (isset($_GET['edit'])) {
 
-                                        if (isset($_GET['edit'])) {
+                                $cat_id = $_GET['edit'];
 
-                                            $cat_id = $_GET['edit'];
+                                include "includes/update_categories.php";
 
-                                            $query = "SELECT * FROM categories WHERE cat_id = $cat_id ";
-                                            $select_categories_id = mysqli_query($connection, $query);
-
-                                            while ($row = mysqli_fetch_assoc($select_categories_id)) {
-
-                                                $cat_id = $row['cat_id'];
-                                                $cat_title = $row['cat_title'];
-
-                                    ?>
-
-                                        <input value="<?= "$cat_title" ? "$cat_title" : ""?>" type="text" class="form-control" name="cat_title" >
-                                        <?php } ?>
-                                    <?php } ?>
-
-                                </div>
-                                <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Update Category">
-                                </div>
-                            </form>
+                            }
+                            
+                            ?>
 
                         </div><!-- Add Category Form -->
 
