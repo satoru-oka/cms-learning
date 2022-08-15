@@ -1,5 +1,14 @@
 <?php
 
+function confirmQuery($result) {
+
+    global $connection;
+
+    if (!$result) {
+        die("Query failed ." . mysqli_error($connection));
+    }
+}
+
 function insert_categories() {
 
     global $connection;
@@ -15,7 +24,7 @@ function insert_categories() {
         } else {
 
             $query = "INSERT INTO categories(cat_title) ";
-            $query .= "VALUE('{$cat_title}') ";
+            $query .= "VALUES('{$cat_title}') ";
 
             $create_category_query = mysqli_query($connection, $query);
             if (!$create_category_query) {
