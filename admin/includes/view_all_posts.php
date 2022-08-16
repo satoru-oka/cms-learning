@@ -50,7 +50,6 @@
                 
                 }
 
-                echo "<td>$post_category_id</td>";
                 echo "<td>$post_status</td>";
                 echo "<td><img width='100' src='../images/$post_image' alt='image'></td>";
                 echo "<td>$post_tags</td>";
