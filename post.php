@@ -1,5 +1,7 @@
 <?php require_once('includes/db.php') ?>
 <?php require_once('includes/header.php') ?>
+<?php require_once('./functions.php'); ?>
+
     <!-- Navigation -->
     <?php require_once "includes/navigation.php" ?>
     <!-- Page Content -->
@@ -64,10 +66,13 @@
                     $comment_email = $_POST['comment_email'];
                     $comment_content = $_POST['comment_content'];
 
-                    $auery = "INSERT INTO comments (comment_post_id, comment_author
-                                                , comment_email, comment_content, comment_status, comment_date)";
-                    $auery .= "VALUES($the_post_id, '{$comment_author}' , '{$comment_email}'
+                    $query = "INSERT INTO comments (comment_post_id, comment_author
+                                                , comment_email, comment_content, comment_status, comment_date) ";
+                    $query .= "VALUES($the_post_id, '{$comment_author}', '{$comment_email}'
                                     , '{$comment_content}', 'unapproved', now())";
+
+                    $creat_comment_query = mysqli_query($connection, $query);
+                    confirmQuery($creat_comment_query);
 
                 }
 
