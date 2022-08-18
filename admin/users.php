@@ -26,10 +26,10 @@
                         // Controls page display according to conditions
                         switch($source) {
                             
-                            case 'add_post';
+                            case 'add_user';
                                 include "includes/add_users.php";
                                 break;
-                            case 'edit_post';
+                            case 'edit_user';
                                 include "includes/edit_users.php";
                                 break;
                             case '200';
