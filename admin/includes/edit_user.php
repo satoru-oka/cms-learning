@@ -77,22 +77,22 @@ if (isset($_POST['update_post'])) {
     <div class="form-group">
         <select name="post_category" id="">
 
-            <?php
+        <?php
 
-                $query = "SELECT * FROM categories ";
-                $select_categories = mysqli_query($connection, $query);
+            $query = "SELECT * FROM users ";
+            $select_users = mysqli_query($connection, $query);
 
-                confirmQuery($select_categories);
+            confirmQuery($select_users);
 
-                while ($row = mysqli_fetch_assoc($select_categories)) {
+            while ($row = mysqli_fetch_assoc($select_users)) {
 
-                    $cat_id = $row['cat_id'];
-                    $cat_title = $row['cat_title'];
-                    echo "<option value='{$cat_id}'>{$cat_title}</option>";
-                
-                }
+                $user_id = $row['user_id'];
+                $user_role = $row['user_role'];
+                echo "<option value='{$user_id}'>{$user_role}</option>";
 
-            ?>
+            }
+
+        ?>
 
         </select>
     </div>

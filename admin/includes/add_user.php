@@ -1,17 +1,18 @@
 <?php
     require_once('../functions.php');
 
-    if (isset($_POST['create_post'])) {
+    if (isset($_POST['create_user'])) {
 
-        $post_title = $_POST['title'];
-        $post_author = $_POST['author'];
-        $post_category_id = $_POST['post_category'];
-        $post_status = $_POST['post_status'];
-        $post_image = $_FILES['image']['name'];
-        $post_image_temp = $_FILES['image']['tmp_name'];
-        $post_tags = $_POST['post_tags'];
-        $post_content = $_POST['post_content'];
-        $post_date = date('d-m-y');
+        $user_id = $_POST['user_id'];
+        $user_firstname = $_POST['user_firstname'];
+        $user_lastname = $_POST['user_lastname'];
+        $user_role = $_POST['user_role'];
+        // $post_image = $_FILES['image']['name'];
+        // $post_image_temp = $_FILES['image']['tmp_name'];
+        $username = $_POST['username'];
+        $user_email = $_POST['user_email'];
+        $user_password = $_POST['user_password'];
+        // $post_date = date('d-m-y');
 
         move_uploaded_file($post_image_temp, "../images/$post_image");
 
@@ -40,22 +41,9 @@
 
     <div class="form-group">
         <select name="user_role" id="">
-            <?php
-
-                $query = "SELECT * FROM users ";
-                $select_users = mysqli_query($connection, $query);
-
-                confirmQuery($select_users);
-
-                while ($row = mysqli_fetch_assoc($select_users)) {
-
-                    $user_id = $row['user_id'];
-                    $user_role = $row['user_role'];
-                    echo "<option value='{$user_id}'>{$user_role}</option>";
-
-                }
-
-            ?>
+            <option value="subscriber">Select Options</option>
+            <option value="admin">Admin</option>
+            <option value="subscriber">Subscriber</option>
         </select>
     </div>
 
@@ -80,7 +68,7 @@
     </div>
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="create_user" value="AddUser">
+        <input class="btn btn-primary" type="submit" name="create_user" value="Add User">
     </div>
 
 </form>
