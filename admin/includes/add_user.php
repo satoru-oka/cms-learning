@@ -14,14 +14,14 @@
         $user_password = $_POST['user_password'];
         // $post_date = date('d-m-y');
 
-        move_uploaded_file($post_image_temp, "../images/$post_image");
+        // move_uploaded_file($post_image_temp, "../images/$post_image");
 
-        $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date
-                                    , post_image, post_content, post_tags, post_status) ";
-        $query .= "VALUES('{$post_category_id}', '{$post_title}', '{$post_author}', now(), '{$post_image}'
-                        , '{$post_content}', '{$post_tags}', '{$post_status}' ) ";
+        $query = "INSERT INTO users(user_id, user_firstname, user_lastname, user_role
+                                    , username, user_email, user_password) ";
+        $query .= "VALUES('{$user_id}', '{$user_firstname}', '{$user_lastname}', '{$user_role}'
+                        , '{$username}', '{$user_email}', '{$user_password}' ) ";
 
-        $create_post_query = mysqli_query($connection, $query);
+        $create_user_query = mysqli_query($connection, $query);
         confirmQuery($create_post_query);
 
     }
